@@ -1,9 +1,9 @@
 {
   "homepage": "",
-  "name": "node-js-starter",
+  "name": "raffles",
   "version": "1.0.0",
-  "description": "Node.js starter project",
-  "author": "Akshat Gadodia <akshatgadodia@gmail.com>",
+  "description": "Servidor de gestión de sorteos y comercios",
+  "author": "qdrink <qdrink.info@gmail.com>",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
