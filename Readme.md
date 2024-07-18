@@ -1,4 +1,4 @@
-# Node.js Starter Project
+# Node.js Comercios-Sorteos Project
 
 This is a starter project for building a Node.js application with features like logging, MongoDB database setup, user authentication, token generation, password management, email sending, role-based authorization, and error handling.
 
@@ -7,7 +7,7 @@ This is a starter project for building a Node.js application with features like 
 1. Clone the repository:
 
    ```
-   git clone https://github.com/your-username/nodejs-starter-project.git
+   git clone https://github.com/qdrink/nodejs-starter-project.git
    ```
 
 2. Install dependencies:
