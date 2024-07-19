@@ -12,12 +12,12 @@ const corsHandler = (req, res, next) => {
   const origin = req.get("origin");
 
   // Check if the origin is in the whitelist
-  const isWhitelisted = whitelist.includes(origin);
+  const isWhitelisted = whitelist.includes(origin) || !origin;
 
   // Set CORS headers based on whether the origin is whitelisted
-  if (isWhitelisted) {
+  if (isWhitelisted) {   
     req.originSource = 'Whitelisted Origin'; // Attatch the origin to request object
-    res.setHeader("Access-Control-Allow-Origin", req.get("origin"));
+    res.setHeader("Access-Control-Allow-Origin", !origin? "*": req.get("origin"));
     res.setHeader(
       "Access-Control-Allow-Methods",
       "GET, POST, OPTIONS, PUT, PATCH, DELETE"
