@@ -7,13 +7,13 @@ This is a starter project for building a Node.js application with features like 
 1. Clone the repository:
 
    ```
-   git clone https://github.com/qdrink/nodejs-starter-project.git
+   git clone https://github.com/qdrink/comercios-sorteos.git
    ```
 
 2. Install dependencies:
 
    ```
-   cd nodejs-starter-project
+   cd comercios-sorteos
    npm install
    ```
 
