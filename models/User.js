@@ -23,7 +23,7 @@ const userSchema = new Schema({
     type: String,
     required: true,
     minlength: 6,
-   // select: false, // To exclude password from query results by default
+    //select: false, // To exclude password from query results by default
   },
   rol: {
     type: String,
