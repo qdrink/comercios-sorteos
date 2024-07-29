@@ -132,7 +132,6 @@ const forgetPassword = asyncHandler(async (req, res, next) => {
       return next(new ErrorResponse(userNotFoundMessage, 404));
     }
     const resetToken = user.generatePasswordResetToken();
-    console.log(resetToken);
     await user.save({ validateBeforeSave: false });
     const resetUrl = `${baseUrl}/user/reset-password/${resetToken}`;
     await sendPasswordResetEmail(user.email, resetUrl);

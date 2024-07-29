@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 
 // Middleware for verifying user roles
 const verifyUserRoles = (...allowedRoles) => {
-  return (req, res, next) => { console.log(allowedRoles)
+  return (req, res, next) => { 
     // Check if user roles are available in the request
     if (!req.rol) {
       // If roles are missing, send an unauthorized response

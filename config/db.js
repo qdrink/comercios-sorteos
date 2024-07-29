@@ -22,7 +22,7 @@ const connectDB = async () => {
 	
         // Connect to the MongoDB database using the provided URL
         await mongoose.connect(connectionUrl);
-	console.log("CONNECTION SUCCESS")
+        
         // Log a success message if the connection is successful
         console.log("Connection to the database successful");
     } catch (error) {

@@ -22,7 +22,7 @@ const verifyUserToken = (req, res, next) => {
   }
 
   // Verify the token and decode its payload
-  jwt.verify(token, process.env.SECRET_KEY, async (err, decoded) => { console.log(decoded)
+  jwt.verify(token, process.env.SECRET_KEY, async (err, decoded) => { 
     if (err) {
       // If the token verification fails, send an invalid token response
       return next(new ErrorResponse("Invalid token", 403));
@@ -33,7 +33,6 @@ const verifyUserToken = (req, res, next) => {
     req.user = decoded.UserInfo.user;
     req.rol = decoded.UserInfo.rol;
     // Proceed to the next middleware
-    console.log(req.rol)
     next();
   });
 };
