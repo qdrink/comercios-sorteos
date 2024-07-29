@@ -25,8 +25,8 @@ const userSchema = new Schema({
     minlength: 6,
    // select: false, // To exclude password from query results by default
   },
-  roles: {
-    type: Object,
+  rol: {
+    type: String,
     required: true,
   },
   passwordResetToken: String,

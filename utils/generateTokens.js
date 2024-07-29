@@ -10,7 +10,7 @@ const generateTokens = (userInfo) => {
       UserInfo: {
         user: userInfo.email,
         userId: userInfo._id,
-        roles: userInfo.roles
+        rol: userInfo.rol
       }
     },
     process.env.SECRET_KEY,
@@ -23,7 +23,7 @@ const generateTokens = (userInfo) => {
       UserInfo: {
         user: userInfo.email,
         userId: userInfo._id,
-        roles: userInfo.roles
+        rol: userInfo.rol
       }
     },
     process.env.SECRET_KEY,
@@ -43,7 +43,7 @@ const generateAccessTokenFromRefreshToken = (refreshToken) => {
         UserInfo: {
           user: userInfo.email,
           userId: userInfo._id,
-          roles: userInfo.roles
+          rol: userInfo.rol
         }
       },
       process.env.SECRET_KEY,

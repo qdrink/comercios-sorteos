@@ -3,6 +3,7 @@ const User = require("../models/User");
 const asyncHandler = require("../middlewares/asyncHandler");
 const bcrypt = require("bcryptjs");
 var jwt = require("jsonwebtoken");
+const crypto = require("crypto");
 const { sendPasswordResetEmail } = require("../utils/mail");
 const {
   userRegistrationSuccessfulMessage,
@@ -33,9 +34,7 @@ const registerUser = asyncHandler(async (req, res, next) => {
     name,
     email,
     password: passwordHash,
-    roles: {
-      USER: ROLES_LIST.USER//<YOUR_USER_ROLE_IDENTIFICATION (Can be any number or anything)>
-    }
+    rol: ROLES_LIST.USER
   });
   user = await newUser.save();  // Save the user to the database
   res.status(201).json({
@@ -133,6 +132,7 @@ const forgetPassword = asyncHandler(async (req, res, next) => {
       return next(new ErrorResponse(userNotFoundMessage, 404));
     }
     const resetToken = user.generatePasswordResetToken();
+    console.log(resetToken);
     await user.save({ validateBeforeSave: false });
     const resetUrl = `${baseUrl}/user/reset-password/${resetToken}`;
     await sendPasswordResetEmail(user.email, resetUrl);
@@ -153,7 +153,10 @@ const resetPassword = asyncHandler(async (req, res, next) => {
   const { newPassword } = req.body;
   try {
     const user = await User.findOne({
-      passwordResetToken: resetToken,
+      passwordResetToken: crypto
+      .createHash("sha256")
+      .update(resetToken)
+      .digest("hex"),
       passwordResetExpires: { $gt: Date.now() }
     });
     if (!user) {
