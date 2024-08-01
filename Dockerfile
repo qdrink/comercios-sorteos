@@ -1,21 +1,20 @@
-# Use a specific version of the Node.js image
-FROM docker.io/node:latest as BASE
+#Specify a base image
+FROM node:alpine
 
-# Set the working directory inside the container
-WORKDIR /app
+#Specify a working directory
+WORKDIR /usr/app
 
-# Copy package.json and package-lock.json to the container
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
-# where available (npm@5+)
-COPY package*.json ./
+#Copy the dependencies file
+COPY ./package.json ./
 
-# Install project dependencies
-RUN npm install
-# If you are building your code for production
-# RUN npm ci --omit=dev
+#Install dependencies
+RUN npm install 
 
-# Copy the rest of the application code
-COPY . .
+#Copy remaining files
+COPY ./ ./
+
+#Default command
+CMD ["npm","start"]
 
 # Expose the port that your application is listening on
 EXPOSE 5000
