@@ -10,9 +10,9 @@ const databaseName = process.env.DB_NAME
 // Create the MongoDB connection URL using the provided credentials
 // URL format for MongoDB Atlas
 //const connectionUrl = `mongodb://${username}:${password}@${host}:${port}/${databaseName}?authSource=admin&ssl=true&retryWrites=true`;
-const connectionUrl = `mongodb+srv://${username}:${password}@${host}/${databaseName}?retryWrites=true&w=majority`;
+//const connectionUrl = `mongodb+srv://${username}:${password}@${host}/${databaseName}?retryWrites=true&w=majority`;
 // URL format for mongodb on local system or on docker container
-//const connectionUrl = `mongodb://${username}:${password}@${host}:${port}/${databaseName}`;
+const connectionUrl = `mongodb://${username}:${password}@${host}:${port}/${databaseName}`;
 
 // Function to connect to the MongoDB database
 const connectDB = async () => {

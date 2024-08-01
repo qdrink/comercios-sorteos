@@ -9,6 +9,9 @@
   "passwordUpdatedMessage": "Password updated successfully.",
   "passwordResetEmailSentMessage": "Password reset email sent successfully.",
   "invalidTokenMessage": "Invalid token.",
-  "passwordResetSuccessMessage": "Password reset successful."
+  "passwordResetSuccessMessage": "Password reset successful.",
+
+  "commerceAlreadyExistsMessage": "El comercio ya existe.",
+  "commerceNotFoundMessage": "Comercio no encontrado."
 }
 
