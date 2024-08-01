@@ -22,7 +22,7 @@ const verifyUserToken = (req, res, next) => {
   }
 
   // Verify the token and decode its payload
-  jwt.verify(token, process.env.D_B_SECRET_KEY, async (err, decoded) => {
+  jwt.verify(token, process.env.SECRET_KEY, async (err, decoded) => { 
     if (err) {
       // If the token verification fails, send an invalid token response
       return next(new ErrorResponse("Invalid token", 403));
@@ -31,8 +31,7 @@ const verifyUserToken = (req, res, next) => {
     // Extract user information from the decoded token and attach it to the request object
     req.userId = decoded.UserInfo.userId;
     req.user = decoded.UserInfo.user;
-    req.roles = decoded.UserInfo.roles;
-
+    req.rol = decoded.UserInfo.rol;
     // Proceed to the next middleware
     next();
   });

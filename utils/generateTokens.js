@@ -1,6 +1,6 @@
 const jwt = require("jsonwebtoken");
 
-const generateTokens = (userInfo) => {
+const generateTokens = (userInfo) => { 
   const accessTokenExpiration = process.env.ACCESS_TOKEN_EXPIRATION || "15m"; // Default to 15 minutes
   const refreshTokenExpiration = process.env.REFRESH_TOKEN_EXPIRATION || "7d"; // Default to 7 days
   
@@ -10,7 +10,7 @@ const generateTokens = (userInfo) => {
       UserInfo: {
         user: userInfo.email,
         userId: userInfo._id,
-        roles: userInfo.roles
+        rol: userInfo.rol
       }
     },
     process.env.SECRET_KEY,
@@ -23,7 +23,7 @@ const generateTokens = (userInfo) => {
       UserInfo: {
         user: userInfo.email,
         userId: userInfo._id,
-        roles: userInfo.roles
+        rol: userInfo.rol
       }
     },
     process.env.SECRET_KEY,
@@ -43,7 +43,7 @@ const generateAccessTokenFromRefreshToken = (refreshToken) => {
         UserInfo: {
           user: userInfo.email,
           userId: userInfo._id,
-          roles: userInfo.roles
+          rol: userInfo.rol
         }
       },
       process.env.SECRET_KEY,
