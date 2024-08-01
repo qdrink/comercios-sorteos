@@ -24,6 +24,7 @@ const userSchema = new Schema({
   department: {
     type: String,
     required: true,
+    
   },
   phone: {
     type: String,
